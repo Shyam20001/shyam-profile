@@ -58,7 +58,7 @@ if (cluster.isPrimary) {
   // Restrict CORS to only allow 'http://127.0.0.1:8787'
   // List of allowed origins
   const allowedOrigins = [
-    'http://localhost:5173', // Add your allowed origins here
+    `${process.env.ORIGIN}`, // Add your allowed origins here
   ];
 
   // Middleware to handle CORS and restrict origins
