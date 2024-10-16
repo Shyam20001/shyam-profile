@@ -1,72 +1,31 @@
-import { useState } from 'react'
-import axios from 'axios';
-import reactLogo from './assets/react.svg'
-import appLogo from '/favicon.svg'
-import PWABadge from './PWABadge.jsx'
-import './App.css'
+
+// src/App.jsx
+import Navbar from './components/Navbar'; 
+import Hero from './components/Hero';
+import Education from './components/Education';
+import WorkExperience from './components/WorkExperience';
+import TechnicalSkills from './components/TechnicalSkills';
+import Contributions from './components/Contributions';
+import BlogDocs from './components/BlogDocs';
+import Contact from './components/Contact';
+import SpinUp from './components/SpinUp';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [responseData, setResponseData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleGetRequest = () => {
-    setLoading(true);
-    setError(null);
-
-    axios
-      .get(import.meta.env.VITE_URL) // Replace with your URL 
-      .then((response) => {
-        setResponseData(response.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  };
-
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={appLogo} className="logo" alt="shyam-profile logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>shyam-profile</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <div>
-      <button onClick={handleGetRequest} disabled={loading}>
-        {loading ? 'Loading...' : 'Fetch Data'}
-      </button>
-
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      
-      {responseData && (
-        <div>
-          <h3>Response Data:</h3>
-          <pre>{JSON.stringify(responseData, null, 2)}</pre>
-        </div>
-      )}
+    <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white min-h-screen">
+      <Navbar />
+      <Hero />
+      <Education />
+      <WorkExperience />
+      <TechnicalSkills />
+      <Contributions />
+      <BlogDocs />
+      <SpinUp/>
+      <Contact />
+      <Footer />
     </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <PWABadge />
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
