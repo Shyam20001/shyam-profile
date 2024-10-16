@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios';
 import reactLogo from './assets/react.svg'
 import appLogo from '/favicon.svg'
 import PWABadge from './PWABadge.jsx'
@@ -6,6 +7,26 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [responseData, setResponseData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleGetRequest = () => {
+    setLoading(true);
+    setError(null);
+
+    axios
+      .get(import.meta.env.VITE_URL) // Replace with your URL 
+      .then((response) => {
+        setResponseData(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  };
+
 
   return (
     <>
@@ -26,6 +47,20 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <div>
+      <button onClick={handleGetRequest} disabled={loading}>
+        {loading ? 'Loading...' : 'Fetch Data'}
+      </button>
+
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      
+      {responseData && (
+        <div>
+          <h3>Response Data:</h3>
+          <pre>{JSON.stringify(responseData, null, 2)}</pre>
+        </div>
+      )}
+    </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
