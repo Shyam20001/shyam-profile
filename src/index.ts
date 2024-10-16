@@ -56,39 +56,39 @@ if (cluster.isPrimary) {
   // Workers can share any TCP connection
   const app = new Hono();
   // Restrict CORS to only allow 'http://127.0.0.1:8787'
-  // List of allowed origins
-  const allowedOrigins = [
-    `${process.env.ORIGIN}`, // Add your allowed origins here
-  ];
+// List of allowed origins
+const allowedOrigins = [
+  'https://shyam20001.github.io', // Add your allowed origins here  http://localhost:5173
+];
 
-  // Middleware to handle CORS and restrict origins
-  app.use('*', async (c, next) => {
-    const origin = c.req.header('origin'); // Get the request's origin
+// Middleware to handle CORS and restrict origins
+app.use('*', async (c, next) => {
+  const origin = c.req.header('origin'); // Get the request's origin
 
-    // Check if the origin is in the allowed origins list
-    if (allowedOrigins.includes(origin)) {
-      // Apply CORS settings if the origin is allowed
-      const corsMiddlewareHandler = cors({
-        origin: `${process.env.ORIGIN}` || origin, // Allow this origin
-        allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests', 'Content-Type', 'Authorization'],
-        allowMethods: ['POST', 'GET', 'OPTIONS'],
-        exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
-        credentials: true,
-        maxAge: 600,
-      });
-
-      // Execute the CORS middleware
-      return corsMiddlewareHandler(c, next);
-    }
-
-    // If the origin is not allowed, return a 403 Forbidden response
-    return new Response('Forbidden: Unauthorized origin', {
-      status: 403,
-      headers: {
-        'Content-Type': 'text/plain',
-      },
+  // Check if the origin is in the allowed origins list
+  if (allowedOrigins.includes(origin)) {
+    // Apply CORS settings if the origin is allowed
+    const corsMiddlewareHandler = cors({
+      origin: `${process.env.ORIGIN}` || origin, // Allow this origin
+      allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests', 'Content-Type', 'Authorization'],
+      allowMethods: ['POST', 'GET', 'OPTIONS'],
+      exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
+      credentials: true,
+      maxAge: 600,
     });
+
+    // Execute the CORS middleware
+    return corsMiddlewareHandler(c, next);
+  }
+
+  // If the origin is not allowed, return a 403 Forbidden response
+  return new Response('Forbidden: Unauthorized origin', {
+    status: 403,
+    headers: {
+      'Content-Type': 'text/plain',
+    },
   });
+});
 
   // Serve static files from the public directory
   app.use('/public/*', serveStatic({ root: './' }));
