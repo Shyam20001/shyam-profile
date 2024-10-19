@@ -8,9 +8,9 @@ function Education() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Example Education Item */}
           <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-6 rounded-lg shadow-lg transform hover:translate-y-2 transition">
-            <h4 className="text-2xl font-bold">Bachelor of Science in Computer Science</h4>
-            <p className="mt-2">University XYZ, 2015 - 2019</p>
-            <p className="mt-2">GPA: 3.8/4.0</p>
+            <h4 className="text-2xl font-bold">Bachelor of Engineering in Biomedical Engineering.</h4>
+            <p className="mt-2">Anna University India, 2019 - 2023</p>
+            {/* <p className="mt-2">GPA: 3.8/4.0</p> */}
           </div>
           {/* Add more education items as needed */}
         </div>

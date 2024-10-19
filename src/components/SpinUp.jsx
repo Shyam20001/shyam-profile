@@ -138,17 +138,17 @@ function SpinUp() {
           <button
             onClick={handleGetRequest}
             disabled={loading}
-            className="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:opacity-50"
+            className="mb-6 px-6 py-3 bg-indigo-600 text-black rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:opacity-50"
           >
-            {loading ? "Loading..." : "Fetch Data"}
+            {loading ? "Spinning UP" : "Server ON"}
           </button>
 
           {error && <p className="text-red-500 mb-4">Error: {error}</p>}
 
           {responseData && (
-            <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-2">Response Data:</h3>
-              <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
+            <div className="w-full max-w-2xl bg-yellow-300 shadow-lg rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-2 text-black">Response Data:</h3>
+              <pre className="bg-gray-900 text-red-900 p-4 rounded-md overflow-x-auto">
                 {JSON.stringify(responseData, null, 2)}
               </pre>
             </div>

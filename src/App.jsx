@@ -9,6 +9,7 @@ import Contributions from './components/Contributions';
 import BlogDocs from './components/BlogDocs';
 import Contact from './components/Contact';
 import SpinUp from './components/SpinUp';
+import CallNow from './components/CallNow'
 import Footer from './components/Footer';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <BlogDocs />
       <SpinUp/>
       <Contact />
+      <CallNow/>
       <Footer />
     </div>
   );

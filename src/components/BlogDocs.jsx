@@ -29,24 +29,24 @@ function BlogDocs() {
  ### **Bench marks** 
  `,
     },
-    {
-      id: 2,
-      title: 'Optimizing Web Performance',
-      summary: 'Strategies and best practices to enhance the performance of your web applications.',
-      content: `
- ### Introduction
- Web performance optimization is crucial for providing a smooth user experience and improving SEO rankings.
- ### Techniques
- - **Code Splitting:** Break down your code into smaller chunks to load only what's necessary.
- - **Lazy Loading:** Delay loading images and other resources until they are needed.
- - **Minification:** Reduce the size of your CSS, JavaScript, and HTML files.
- ### Tools
- - **Lighthouse:** An open-source tool for improving the quality of web pages.
- - **Webpack Bundle Analyzer:** Visualize the size of webpack output files.
- ### Conclusion
- By implementing these strategies, you can significantly improve the speed and responsiveness of your web applications.
- `,
-    },
+//     {
+//       id: 2,
+//       title: 'Optimizing Web Performance',
+//       summary: 'Strategies and best practices to enhance the performance of your web applications.',
+//       content: `
+//  ### Introduction
+//  Web performance optimization is crucial for providing a smooth user experience and improving SEO rankings.
+//  ### Techniques
+//  - **Code Splitting:** Break down your code into smaller chunks to load only what's necessary.
+//  - **Lazy Loading:** Delay loading images and other resources until they are needed.
+//  - **Minification:** Reduce the size of your CSS, JavaScript, and HTML files.
+//  ### Tools
+//  - **Lighthouse:** An open-source tool for improving the quality of web pages.
+//  - **Webpack Bundle Analyzer:** Visualize the size of webpack output files.
+//  ### Conclusion
+//  By implementing these strategies, you can significantly improve the speed and responsiveness of your web applications.
+//  `,
+//     },
     // Add more blog posts as needed
   ];
 
@@ -101,20 +101,21 @@ function BlogDocs() {
               </button>
               {/* Conditional rendering for the fetch buttons only for id: 1 */}
               {post.id === 1 && (
-                <div className="mt-4">
-                  <button
-                    onClick={() => fetchDataFromUrl(`${import.meta.env.VITE_URL}/rust-rs`)}
-                    className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition mr-2"
-                  >
-                    Fetch Rust Data
-                  </button>
-                  <button
-                    onClick={() => fetchDataFromUrl(`${import.meta.env.VITE_URL}/node-js`)}
-                    className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-                  >
-                    Fetch Node.js Data
-                  </button>
-                </div>
+                <div className="mt-4 flex flex-wrap space-x-2">
+                <button
+                  onClick={() => fetchDataFromUrl(`${import.meta.env.VITE_URL}/rust-rs`)}
+                  className="bg-green-500 text-white py-2 px-3 rounded-lg hover:bg-green-700 transition w-full sm:w-auto"
+                >
+                  Fetch Rust Data
+                </button>
+                <button
+                  onClick={() => fetchDataFromUrl(`${import.meta.env.VITE_URL}/node-js`)}
+                  className="bg-blue-500 text-white py-2 px-3 rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
+                >
+                  Fetch Node.js Data
+                </button>
+              </div>
+              
               )}
             </div>
           ))}
@@ -135,8 +136,8 @@ function BlogDocs() {
             {fetchData && (
               <div className="mt-4">
                 <h5 className="text-lg font-bold">Fetch Results:</h5>
-                <pre className="bg-gray-100 p-4 rounded-lg">{JSON.stringify(fetchData, null, 2)}</pre>
-                {fetchTime && <p className="text-sm text-gray-600">Time Taken: {fetchTime} ms</p>}
+                <pre className="bg-green-800 p-4 rounded-lg">{JSON.stringify(fetchData, null, 2)}</pre>
+                {fetchTime && <p className="text-sm text-white">Time Taken: {fetchTime} ms</p>}
               </div>
             )}
 

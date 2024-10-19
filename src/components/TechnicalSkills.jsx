@@ -2,10 +2,20 @@
 
 function TechnicalSkills() {
   const skills = [
-    { name: 'React', level: '90%' },
-    { name: 'Tailwind CSS', level: '85%' },
-    { name: 'Node.js', level: '80%' },
-    { name: 'GraphQL', level: '75%' },
+    { name: 'React', level: '70%' },
+    { name: 'Express.js V4.0', level: '95%' },
+    { name: 'Tailwind CSS', level: '65%' },
+    { name: 'Node.js', level: '90%' },
+    { name: 'GraphQL', level: '65%' },
+    { name: 'Hono (cloudflare/deno/bun/node/service-workers)', level: '85%' },
+    { name: 'Napi-Rs (RUST plugins for js runtimes)', level: '65%' },
+    { name: 'BUN (A super Fast js runtime inspired by NODE.JS)', level: '90%' },
+    { name: 'DENO (A highly Secure js runtime written in RUST_V8)', level: '75%' },
+    { name: 'DOCKER', level: '65%' },
+    { name: 'NX/LERNA Monorepos', level: '65%' },
+    { name: 'CloudFlare-Workers', level: '75%' },
+    { name: 'React-Native CLI / Expo CLI', level: '70%' },
+    { name: 'NEXT-JS (hono-api/next-api)', level: '75%' },
     // Add more skills as needed
   ];
 

@@ -1,5 +1,5 @@
 // src/components/Hero.jsx
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 function Hero() {
   return (
@@ -10,8 +10,15 @@ function Hero() {
         whileHover={{ rotateY: 10 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h2>
-        <p className="text-lg">I&apos;m a passionate developer specializing in modern web technologies.</p>
+        <h2 className="text-4xl font-bold mb-4">Welcome Fellas..!!</h2>
+        <p className="text-lg">
+          Hi, I’m Shyam, a passionate Node.js architect driven by pure
+          enthusiasm for modern web technologies. With expertise in Node, Bun,
+          Deno, and serverless runtimes like Cloudflare, Vercel, and Netlify, I
+          thrive on crafting efficient solutions. My experience with Docker
+          monorepos and React Native has shaped me into a versatile developer.
+          As I like to say, “I can do this all day!”
+        </p>
       </motion.div>
     </section>
   );

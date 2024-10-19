@@ -8,10 +8,10 @@ function WorkExperience() {
         <div className="space-y-8">
           {/* Example Work Experience Item */}
           <div className="bg-gradient-to-r from-pink-500 to-red-500 p-6 rounded-lg shadow-lg transform hover:translate-y-2 transition">
-            <h4 className="text-2xl font-bold">Senior Developer at TechCorp</h4>
-            <p className="mt-2">June 2020 - Present</p>
+            <h4 className="text-2xl font-bold">Node Js Architech at UniqueForce Technology, South-India</h4>
+            <p className="mt-2">June 2023 - Present</p>
             <p className="mt-2">
-              Leading a team of developers in building scalable web applications using React and Node.js.
+              Working and guiding a team of developers in building scalable web applications using React and Node.js with Super fast frameworks such as Hono, Elysia, Next Js and UWS.
             </p>
           </div>
           {/* Add more work experience items as needed */}
