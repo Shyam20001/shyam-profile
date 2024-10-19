@@ -172,7 +172,7 @@
 
 ///// FInal with D1 Data Base 
 export default {
-	async fetch(request, env) {
+	async fetch(request, env, ctx) {
 		const frontendUrl = env.CLIENT || 'http://localhost:5173';
 		const backendUrl = env.SERVER || 'http://localhost:3549';
 		const { pathname } = new URL(request.url);
@@ -185,7 +185,7 @@ export default {
 			return new Response(null, {
 				status: 204,
 				headers: {
-					'Access-Control-Allow-Origin': '*', // Allow all origins for preflight
+					'Access-Control-Allow-Origin': frontendUrl,
 					'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
 					'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 					'Access-Control-Max-Age': '86400',
@@ -211,14 +211,19 @@ export default {
 					status: 201,
 					headers: {
 						'Content-Type': 'application/json',
-						'Access-Control-Allow-Origin': '*', // Allow all origins
+						'Access-Control-Allow-Origin': frontendUrl, // Set correctly for frontend
+						'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+						'Access-Control-Allow-Headers': 'Content-Type, Authorization'
 					},
 				});
 			} catch (error) {
 				console.error('Database insert error:', error);
 				return new Response(JSON.stringify({ success: false, error: 'Failed to save message' }), {
 					status: 500,
-					headers: { 'Content-Type': 'application/json' },
+					headers: {
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': frontendUrl,
+					},
 				});
 			}
 		}
@@ -229,14 +234,19 @@ export default {
 				return new Response(JSON.stringify(results), {
 					headers: {
 						'Content-Type': 'application/json',
-						'Access-Control-Allow-Origin': '*', // Allow all origins
+						'Access-Control-Allow-Origin': frontendUrl, // Set correctly for frontend
+						'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+						'Access-Control-Allow-Headers': 'Content-Type, Authorization'
 					},
 				});
 			} catch (error) {
 				console.error('Error fetching contacts:', error);
 				return new Response(JSON.stringify({ success: false, error: 'Failed to fetch contacts' }), {
 					status: 500,
-					headers: { 'Content-Type': 'application/json' },
+					headers: {
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': frontendUrl,
+					},
 				});
 			}
 		}
@@ -264,13 +274,16 @@ export default {
 				const modifiedRequest = new Request(url, {
 					method: request.method,
 					headers: request.headers,
-					body: request.method === 'GET' || request.method === 'HEAD' ? null : await request.text(),
+					body: request.method === 'GET' || request.method === 'HEAD' ? null : request.body,
 					redirect: 'manual'
 				});
 
 				const response = await fetch(modifiedRequest);
+
 				const newHeaders = new Headers(response.headers);
-				newHeaders.set('Access-Control-Allow-Origin', requestOrigin); // Allow the origin of the request
+				newHeaders.set('Access-Control-Allow-Origin', requestOrigin);
+				newHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+				newHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
 				return new Response(response.body, {
 					status: response.status,

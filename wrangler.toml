@@ -23,7 +23,7 @@ enabled = true
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/workers/configuration/secrets/
 [vars]
-CLIENT = "https://shyam20001.github.io/shyam-profile"
+CLIENT = "https://shyam20001.github.io"
 SERVER = "https://shyam-server-api.onrender.com"
 
 [[d1_databases]]
