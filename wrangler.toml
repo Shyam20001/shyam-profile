@@ -23,13 +23,13 @@ enabled = true
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/workers/configuration/secrets/
 [vars]
-CLIENT = "https://shyam20001.github.io"
-SERVER = "https://shyam-server-api.onrender.com"
+CLIENT = ""
+SERVER = ""
 
 [[d1_databases]]
-binding = "DB"                                       # i.e. available in your Worker on env.DB
-database_name = "prod-d1-samdb"
-database_id = "064f360b-4373-405f-a3cb-659bc4478758"
+binding = ""                                       # i.e. available in your Worker on env.DB
+database_name = ""
+database_id = ""
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
