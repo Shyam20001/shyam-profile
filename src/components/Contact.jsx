@@ -39,13 +39,16 @@ function Contact() {
       className="py-20 bg-gradient-to-b from-gray-300 to-gray-200"
     >
       <div className="container mx-auto px-6">
-        <h3 className="text-3xl font-semibold text-center mb-12 text-black">Contact Me</h3>
+        <h3 className="text-3xl font-semibold text-center mb-12 text-black">
+          Contact Me
+        </h3>
         <div className="max-w-lg mx-auto">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block mb-2">Name</label>
               <input
                 type="text"
+                required
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -57,6 +60,7 @@ function Contact() {
               <label className="block mb-2">Email</label>
               <input
                 type="email"
+                required
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -68,6 +72,7 @@ function Contact() {
               <label className="block mb-2">Message</label>
               <textarea
                 name="message"
+                required
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full p-3 rounded-lg text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -83,7 +88,9 @@ function Contact() {
             </button>
           </form>
           {submissionMessage && (
-            <p className="mt-4 text-center">{submissionMessage}</p>
+            <p className="mt-4 text-center text-green-900">
+              {submissionMessage}
+            </p>
           )}
         </div>
       </div>

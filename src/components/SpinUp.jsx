@@ -100,36 +100,61 @@ function SpinUp() {
   }, []);
 
   return (
-    <section id="spinup" className="py-20 bg-gradient-to-b from-gray-300 to-gray-200">
+    <section
+      id="spinup"
+      className="py-20 bg-gradient-to-b from-gray-300 to-gray-200"
+    >
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-indigo-600">App&apos;s Architecture</h1>
-          <p className="mt-2 text-lg text-gray-700">Showcasing Expertise in Modern Web Development</p>
+          <h1 className="text-4xl font-bold text-indigo-600">
+            App&apos;s Architecture
+          </h1>
+          <p className="mt-2 text-lg text-gray-700">
+            Showcasing Expertise in Modern Web Development
+          </p>
         </div>
 
         {/* Article Section */}
         <article className="bg-white shadow-lg rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Behind the Scenes: My Portfolio&apos;s Architecture</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Behind the Scenes: My Portfolio&apos;s Architecture
+          </h2>
           <p className="text-gray-700 mb-4">
-            Welcome to my portfolio! This React CSR PWA is meticulously crafted to demonstrate my proficiency in modern web development technologies. Here&apos;s an insight into the robust infrastructure that powers this platform:
+            Welcome to my portfolio! This React CSR PWA is meticulously crafted
+            to demonstrate my proficiency in modern web development
+            technologies. Here&apos;s an insight into the robust infrastructure
+            that powers this platform:
           </p>
           <ul className="list-disc list-inside text-gray-700 mb-4">
             <li>
-              <strong>Frontend:</strong> Built with React and Tailwind CSS, ensuring a responsive and visually appealing user interface across all devices, from compact 3-inch screens to expansive displays.
+              <strong>Frontend:</strong> Built with React and Tailwind CSS,
+              ensuring a responsive and visually appealing user interface across
+              all devices, from compact 3-inch screens to expansive displays.
             </li>
             <li>
-              <strong>Backend:</strong> Powered by a high-speed Hono Node.js clustered server, deployed on Render for optimal performance and scalability.
+              <strong>Backend:</strong> Powered by a high-speed Hono Node.js
+              clustered server, deployed on Render for optimal performance and
+              scalability.
             </li>
             <li>
-              <strong>Security:</strong> Enhanced security measures are in place, including a proxy layer using Cloudflare Workers. This setup not only fortifies the application against potential threats but also optimizes request routing for faster response times.
+              <strong>Security:</strong> Enhanced security measures are in
+              place, including a proxy layer using Cloudflare Workers. This
+              setup not only fortifies the application against potential threats
+              but also optimizes request routing for faster response times.
             </li>
             <li>
-              <strong>Deployment:</strong> The seamless integration between the frontend and backend ensures that the portfolio operates smoothly as a Progressive Web App (PWA), offering offline capabilities and a native app-like experience.
+              <strong>Deployment:</strong> The seamless integration between the
+              frontend and backend ensures that the portfolio operates smoothly
+              as a Progressive Web App (PWA), offering offline capabilities and
+              a native app-like experience.
             </li>
           </ul>
           <p className="text-gray-700">
-            This architecture reflects my commitment to building secure, efficient, and user-centric web applications. Feel free to explore and interact with the components to get a firsthand experience of the technologies in action.
+            This architecture reflects my commitment to building secure,
+            efficient, and user-centric web applications. Feel free to explore
+            and interact with the components to get a firsthand experience of
+            the technologies in action.
           </p>
         </article>
 
@@ -147,8 +172,10 @@ function SpinUp() {
 
           {responseData && (
             <div className="w-full max-w-2xl bg-yellow-300 shadow-lg rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-2 text-black">Response Data:</h3>
-              <pre className="bg-gray-900 text-red-900 p-4 rounded-md overflow-x-auto">
+              <h3 className="text-xl font-semibold mb-2 text-black">
+                Response Data:
+              </h3>
+              <pre className="bg-gray-900 text-green-900 p-4 rounded-md overflow-x-auto">
                 {JSON.stringify(responseData, null, 2)}
               </pre>
             </div>
